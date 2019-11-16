@@ -6,7 +6,9 @@ import telebot
 from bs4 import BeautifulSoup
 
 
-bot = telebot.TeleBot(config.BOT['access_token'])
+telebot.apihelper.proxy = {'https': 'https://159.12.192.13:10254'}
+bot = telebot.TeleBot(config.access_token)
+
 week_list = ['/monday', '/tuesday', '/wednesday', '/thursday', '/friday', '/saturday']
 week_d = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб']
 
