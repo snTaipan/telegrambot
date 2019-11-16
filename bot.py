@@ -4,7 +4,7 @@ import telebot
 from bs4 import BeautifulSoup
 
 
-access_token = 1055873853:AAEIw_MJpN3b1BhjFJ-4a5wZeK-tYJmK4oY
+access_token = '1055873853:AAEIw_MJpN3b1BhjFJ-4a5wZeK-tYJmK4oY'
 telegram.apihelper.proxy = {'https': 'https://23.237.22.172:3128'}
 
 # Создание бота с указанным токеном доступа
