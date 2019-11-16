@@ -60,13 +60,11 @@ def get_monday(message):
 
 @bot.message_handler(commands=['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'])
 def get_schedule(message):
-       """ Получить расписание на указанный день """
-    web_page = get_page(group, week)
-    schedule = parse_schedule(web_page, day)
-    if not schedule:
-        bot.send_message(message.chat.id, "Ошибка, неверный день")
-        return None
-    times_lst, locations_lst, lessons_lst =  schedule
+    """ Получить расписание на указанный день """
+    day, group = message.text.split()
+    web_page = get_page(group)
+    times_lst, locations_lst, lessons_lst = \
+        parse_schedule(web_page, day)
     resp = ''
     for time, location, lession in zip(times_lst, locations_lst, lessons_lst):
         resp += '<b>{}</b>, {}, {}\n'.format(time, location, lession)
