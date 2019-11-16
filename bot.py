@@ -61,11 +61,6 @@ def get_monday(message):
 @bot.message_handler(commands=['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'])
 def get_schedule(message):
        """ Получить расписание на указанный день """
-    try:
-        day, week, group = message.text.split()
-    except:
-        bot.send_message(message.chat.id, "Ошибка")
-        return None
     web_page = get_page(group, week)
     schedule = parse_schedule(web_page, day)
     if not schedule:
